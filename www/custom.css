@@ -1,0 +1,475 @@
+/* ═══════════════════════════════════════════════
+   OBSIDIAN GOLD — v18
+   ═══════════════════════════════════════════════ */
+
+* { font-family:"Poppins","Segoe UI",sans-serif!important; box-sizing:border-box; }
+
+:root {
+  --bg:    #0c0a09;
+  --surf:  #1a1714;
+  --card:  #211e19;
+  --hover: #2a261f;
+  --g1:    #fcd34d;
+  --g2:    #f59e0b;
+  --g3:    #d97706;
+  --gdim:  #92400e;
+  --tp:    #f0ebe0;
+  --ts:    #a89472;
+  --tm:    #5c5040;
+  --bord:  rgba(245,158,11,0.18);
+  --bords: rgba(245,158,11,0.40);
+}
+
+/* ── Fondo negro absoluto ──────────────────────── */
+html,body { background:#0c0a09!important; color:#f0ebe0!important; margin:0; }
+.container-fluid,.container,.tab-content,.tab-pane,
+.well,.panel,.panel-body,.panel-default,
+.row,[class^="col-"],[class*=" col-"],
+.shiny-html-output,.shiny-bound-output { background:transparent!important; color:#f0ebe0!important; }
+
+/* ── Textura de fondo (punto 10) ───────────────── */
+body::before {
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:
+    radial-gradient(circle, rgba(245,158,11,0.04) 1px, transparent 1px);
+  background-size:32px 32px;
+}
+.container-fluid { position:relative; z-index:1; }
+
+/* ── Navbar ────────────────────────────────────── */
+.navbar,.navbar-default,nav.navbar {
+  background:#1a1714!important;
+  border:none!important;
+  border-bottom:1px solid rgba(245,158,11,0.25)!important;
+  box-shadow:0 2px 30px rgba(0,0,0,0.8)!important;
+  margin-bottom:0!important;
+}
+/* línea gradiente dorada bajo navbar */
+.navbar::after {
+  content:""; display:block; height:1px;
+  background:linear-gradient(90deg, transparent, #f59e0b 30%, #fcd34d 50%, #f59e0b 70%, transparent);
+  position:absolute; bottom:-1px; left:0; right:0;
+}
+.navbar-brand,.navbar-default .navbar-brand {
+  color:#fcd34d!important; font-weight:700!important; font-size:14px!important; letter-spacing:.5px!important;
+}
+.navbar-brand:hover { color:#f59e0b!important; }
+.navbar-default .navbar-nav>li>a {
+  color:#a89472!important; font-size:12px!important; font-weight:500!important;
+  padding:15px 13px!important; border-bottom:2px solid transparent!important; transition:all .18s;
+}
+.navbar-default .navbar-nav>li>a:hover {
+  color:#fcd34d!important; background:rgba(245,158,11,0.07)!important; border-bottom:2px solid #f59e0b!important;
+}
+.navbar-default .navbar-nav>li.active>a,
+.navbar-default .navbar-nav>li.active>a:hover,
+.navbar-default .navbar-nav>li.active>a:focus {
+  color:#fcd34d!important; background:rgba(245,158,11,0.07)!important; border-bottom:2px solid #fcd34d!important;
+}
+.navbar-collapse { background:#1a1714!important; border-color:rgba(245,158,11,0.18)!important; }
+.navbar-default .navbar-toggle { border-color:rgba(245,158,11,0.35)!important; }
+.navbar-default .navbar-toggle .icon-bar { background:#f59e0b!important; }
+
+/* ── Filter bar ────────────────────────────────── */
+#global-filter-bar { background:#1a1714!important; border-bottom:1px solid rgba(245,158,11,0.15)!important; }
+
+/* ── Boxes ─────────────────────────────────────── */
+.box {
+  background:#211e19!important; border:1px solid rgba(245,158,11,0.18)!important;
+  border-radius:10px!important; box-shadow:0 4px 24px rgba(0,0,0,0.5)!important;
+  animation: fadeSlideUp 0.45s ease both;
+}
+.box-header { background:transparent!important; border-bottom:1px solid rgba(245,158,11,0.18)!important; border-radius:9px 9px 0 0!important; padding:12px 16px!important; }
+.box-title  { color:#fcd34d!important; font-size:13px!important; font-weight:600!important; }
+.box-body   { background:transparent!important; color:#f0ebe0!important; }
+.box-footer { background:#2a261f!important; border-top:1px solid rgba(245,158,11,0.18)!important; }
+
+/* ── Tabs ──────────────────────────────────────── */
+.nav-tabs { border-bottom:1px solid rgba(245,158,11,0.18)!important; background:transparent!important; }
+.nav-tabs>li>a { color:#a89472!important; background:transparent!important; border:none!important; font-size:12px!important; font-weight:500!important; padding:8px 15px!important; }
+.nav-tabs>li>a:hover { color:#fcd34d!important; background:rgba(245,158,11,0.06)!important; border:none!important; }
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover { color:#fcd34d!important; background:transparent!important; border:none!important; border-bottom:2px solid #f59e0b!important; font-weight:600!important; }
+.tab-content { background:transparent!important; }
+
+/* ── Tipografía ────────────────────────────────── */
+p,span,li,div,td,th,h1,h2,h3,h4,h5,h6,small { color:#f0ebe0!important; }
+strong { color:#fcd34d!important; font-weight:600!important; }
+h4     { color:#fcd34d!important; font-weight:600!important; font-size:13.5px!important; margin-top:14px; }
+a { color:#f59e0b!important; } a:hover { color:#fcd34d!important; }
+label { color:#a89472!important; font-size:12px!important; font-weight:500!important; }
+hr    { border-color:rgba(245,158,11,0.15)!important; }
+blockquote { background:rgba(245,158,11,0.07)!important; border-left:3px solid #f59e0b!important; color:#a89472!important; }
+code { background:rgba(245,158,11,0.1)!important; color:#fcd34d!important; border:1px solid rgba(245,158,11,0.2)!important; border-radius:4px; padding:1px 5px; }
+pre  { background:#1a1714!important; color:#f0ebe0!important; border:1px solid rgba(245,158,11,0.18)!important; border-radius:6px; padding:12px; font-size:12px; }
+
+/* ── Inputs ────────────────────────────────────── */
+.form-control,input,select,textarea { background:#1a1714!important; color:#f0ebe0!important; border:1px solid rgba(245,158,11,0.35)!important; border-radius:6px!important; }
+.form-control:focus,input:focus { border-color:#f59e0b!important; box-shadow:0 0 0 2px rgba(245,158,11,0.2)!important; outline:none!important; }
+.checkbox label,.radio label { color:#f0ebe0!important; }
+.shiny-input-container>label { color:#a89472!important; }
+select option { background:#1a1714!important; color:#f0ebe0!important; }
+
+/* ── Slider ────────────────────────────────────── */
+.irs--shiny .irs-bar { background:#f59e0b!important; border-top-color:#f59e0b!important; border-bottom-color:#f59e0b!important; }
+.irs--shiny .irs-handle { background:#fcd34d!important; border-color:#fcd34d!important; box-shadow:0 0 8px rgba(252,211,77,0.5)!important; }
+.irs--shiny .irs-from,.irs--shiny .irs-to,.irs--shiny .irs-single { background:#92400e!important; color:#fcd34d!important; font-size:10px!important; }
+.irs--shiny .irs-line { background:#2a261f!important; border-color:rgba(245,158,11,0.18)!important; }
+.irs--shiny .irs-min,.irs--shiny .irs-max,.irs--shiny .irs-grid-text { color:#5c5040!important; }
+
+/* ── Value boxes ───────────────────────────────── */
+.value-box { background:#211e19!important; border:1px solid rgba(245,158,11,0.18)!important; border-radius:10px!important; }
+.value-box .value-box-icon   { background:rgba(245,158,11,0.12)!important; color:#f59e0b!important; }
+.value-box .value-box-number { color:#fcd34d!important; font-size:26px!important; font-weight:700!important; }
+.value-box .value-box-text   { color:#a89472!important; font-size:12px!important; }
+.bg-blue,.bg-green,.bg-yellow,.bg-red,.bg-purple,.bg-navy,.bg-teal,
+.bg-orange,.bg-light-blue,.bg-lime,.bg-maroon,.bg-olive,.bg-fuchsia,.bg-black,.bg-aqua {
+  background:#211e19!important; color:#f0ebe0!important;
+}
+
+/* ── Tablas DT ─────────────────────────────────── */
+.dataTables_wrapper,table.dataTable { color:#f0ebe0!important; background:transparent!important; }
+table.dataTable thead th { background:#1a1714!important; color:#fcd34d!important; border-bottom:1px solid rgba(245,158,11,0.35)!important; font-weight:600!important; }
+table.dataTable tbody tr { background:transparent!important; color:#f0ebe0!important; }
+table.dataTable tbody tr:hover { background:rgba(245,158,11,0.05)!important; }
+table.dataTable tbody tr.odd { background:rgba(255,255,255,0.02)!important; }
+table.dataTable td,table.dataTable th { border-color:rgba(245,158,11,0.12)!important; }
+.dataTables_info,.dataTables_filter label,.dataTables_length label { color:#a89472!important; }
+.dataTables_paginate .paginate_button { color:#a89472!important; }
+.dataTables_paginate .paginate_button.current { background:#92400e!important; color:#fcd34d!important; border-color:rgba(245,158,11,0.35)!important; }
+
+/* ── KPI Cards (punto 1 + 3 + 7) ──────────────── */
+.kpi-card {
+  background:#211e19;
+  border:1px solid rgba(245,158,11,0.18);
+  border-radius:12px;
+  padding:20px 22px 16px;
+  margin-bottom:16px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.4);
+  transition:box-shadow .25s ease, border-color .25s ease, transform .2s ease;
+  animation: fadeSlideUp 0.5s ease both;
+}
+.kpi-card:nth-child(1) { animation-delay:0.05s; }
+.kpi-card:nth-child(2) { animation-delay:0.12s; }
+.kpi-card:nth-child(3) { animation-delay:0.19s; }
+.kpi-card:nth-child(4) { animation-delay:0.26s; }
+/* punto 3: glow hover */
+.kpi-card:hover {
+  box-shadow:0 0 0 1px rgba(245,158,11,0.5), 0 8px 32px rgba(245,158,11,0.18), 0 2px 8px rgba(0,0,0,0.5);
+  border-color:rgba(245,158,11,0.5);
+  transform:translateY(-2px);
+}
+.kpi-label { font-size:10.5px!important; font-weight:600!important; color:#5c5040!important; letter-spacing:.8px!important; text-transform:uppercase!important; margin-bottom:8px; }
+.kpi-value { line-height:1.1; margin-bottom:6px; }
+.kpi-delta { font-size:12px!important; min-height:18px; }
+
+/* ── Info boxes ────────────────────────────────── */
+.info-box { background:#211e19!important; border:1px solid rgba(245,158,11,0.18)!important; border-radius:10px!important; box-shadow:0 4px 20px rgba(0,0,0,0.35)!important; transition:box-shadow .25s, border-color .25s; }
+.info-box:hover { box-shadow:0 0 0 1px rgba(245,158,11,0.4), 0 8px 28px rgba(245,158,11,0.12)!important; border-color:rgba(245,158,11,0.4)!important; }
+.info-box-text   { color:#a89472!important; }
+.info-box-number { color:#fcd34d!important; font-weight:700!important; }
+
+/* ── Animaciones de entrada (punto 1) ──────────── */
+@keyframes fadeSlideUp {
+  from { opacity:0; transform:translateY(16px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.tab-pane.active .box:nth-child(1) { animation-delay:0.05s; }
+.tab-pane.active .box:nth-child(2) { animation-delay:0.12s; }
+.tab-pane.active .box:nth-child(3) { animation-delay:0.20s; }
+.tab-pane.active .box:nth-child(4) { animation-delay:0.28s; }
+.tab-pane.active .box:nth-child(5) { animation-delay:0.36s; }
+
+/* ── Loading spinner dorado (punto 5) ──────────── */
+.shiny-busy-indicator-bar-wrapper,
+.progress.shiny-progress {
+  display:none!important;
+}
+/* Spinner custom sobre cada output */
+.recalculating { opacity:0.35!important; transition:opacity .2s; }
+
+/* Spinner dorado global */
+.shiny-spinner-output-container .load-container {
+  background:rgba(12,10,9,0.85)!important;
+  border-radius:8px!important;
+}
+/* Override el spinner por defecto con uno dorado */
+.shiny-spinner-output-container .loader,
+.shiny-spinner-output-container .sk-circle .sk-child::before {
+  border-color:#f59e0b transparent transparent transparent !important;
+}
+
+/* Spinner plotly */
+.js-plotly-plot .plotly svg.main-svg { transition:opacity .3s; }
+
+/* ── Scrollbar dorada ──────────────────────────── */
+::-webkit-scrollbar { width:5px; height:5px; }
+::-webkit-scrollbar-track { background:#1a1714; }
+::-webkit-scrollbar-thumb { background:#92400e; border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background:#f59e0b; }
+
+/* ── Plotly toolbar ────────────────────────────── */
+.js-plotly-plot .plotly .modebar { background:#1a1714!important; border-radius:6px; }
+.js-plotly-plot .plotly .modebar-btn path { fill:#5c5040!important; }
+.js-plotly-plot .plotly .modebar-btn:hover path { fill:#fcd34d!important; }
+
+/* ══════════════════════════════════════════
+   1. ANIMACIONES DE ENTRADA — fade + slide
+   ══════════════════════════════════════════ */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.tab-pane.active .box {
+  animation: fadeSlideUp 0.45s ease forwards;
+}
+.tab-pane.active .box:nth-child(1) { animation-delay: 0.00s; }
+.tab-pane.active .box:nth-child(2) { animation-delay: 0.08s; }
+.tab-pane.active .box:nth-child(3) { animation-delay: 0.16s; }
+.tab-pane.active .box:nth-child(4) { animation-delay: 0.24s; }
+
+.fade-in-card {
+  animation: fadeSlideUp 0.5s ease forwards;
+  opacity: 0;
+}
+.fade-in-card:nth-child(1) { animation-delay: 0.05s; }
+.fade-in-card:nth-child(2) { animation-delay: 0.15s; }
+.fade-in-card:nth-child(3) { animation-delay: 0.25s; }
+
+.kpi-card {
+  animation: fadeSlideUp 0.5s ease forwards;
+  opacity: 0;
+}
+.kpi-card:nth-child(1) { animation-delay: 0.00s; }
+.kpi-card:nth-child(2) { animation-delay: 0.10s; }
+.kpi-card:nth-child(3) { animation-delay: 0.20s; }
+.kpi-card:nth-child(4) { animation-delay: 0.30s; }
+
+.kpi-value span {
+  animation: countUp 0.6s ease forwards;
+  display: inline-block;
+}
+
+/* ══════════════════════════════════════════
+   3. HOVER GLOW en KPI cards
+   ══════════════════════════════════════════ */
+.kpi-card {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+.kpi-card:hover {
+  box-shadow: 0 0 0 1px rgba(245,158,11,0.4),
+              0 8px 32px rgba(245,158,11,0.18),
+              0 0 60px rgba(245,158,11,0.07) !important;
+  border-color: rgba(245,158,11,0.5) !important;
+  transform: translateY(-2px);
+}
+
+/* ══════════════════════════════════════════
+   5. SPINNER DORADO
+   ══════════════════════════════════════════ */
+.shiny-spinner-output-container > .load-container {
+  background: rgba(12,10,9,0.85) !important;
+}
+.shiny-spinner-output-container .sk-circle .sk-child::before {
+  background-color: #f59e0b !important;
+}
+/* Override spinner por defecto de Shiny */
+.shiny-busy-indicator-bar {
+  background: linear-gradient(90deg, transparent, #f59e0b, #fcd34d, transparent) !important;
+  height: 2px !important;
+}
+/* Spinner inline de plots */
+.recalculating {
+  opacity: 0.3;
+}
+.recalculating::after {
+  content: '';
+  display: block;
+  width: 32px; height: 32px;
+  margin: 20px auto;
+  border: 3px solid rgba(245,158,11,0.15);
+  border-top: 3px solid #f59e0b;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+.shiny-plot-output.recalculating,
+.plotly.recalculating {
+  position: relative;
+}
+
+/* ══════════════════════════════════════════
+   9. PILLS DE SIGNIFICANCIA SPEARMAN
+   ══════════════════════════════════════════ */
+/* Se aplican via JS inline en el heatmap —
+   estos estilos son para cualquier badge sig */
+.sig-pill-high   { background:rgba(252,211,77,0.25); color:#fcd34d; border:1px solid rgba(252,211,77,0.5); border-radius:10px; padding:1px 6px; font-size:10px; font-weight:700; }
+.sig-pill-med    { background:rgba(245,158,11,0.20); color:#f59e0b; border:1px solid rgba(245,158,11,0.4); border-radius:10px; padding:1px 6px; font-size:10px; font-weight:700; }
+.sig-pill-low    { background:rgba(217,119,6,0.15);  color:#d97706; border:1px solid rgba(217,119,6,0.35); border-radius:10px; padding:1px 6px; font-size:10px; font-weight:700; }
+.sig-pill-ns     { background:rgba(92,80,64,0.20);   color:#5c5040; border:1px solid rgba(92,80,64,0.3);  border-radius:10px; padding:1px 6px; font-size:10px; font-weight:600; }
+
+/* ══════════════════════════════════════════
+   10. TEXTURA DE FONDO (puntos dorados tenues)
+   ══════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(circle, rgba(245,158,11,0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.container-fluid { position: relative; z-index: 1; }
+.navbar          { position: relative; z-index: 10 !important; }
+
+/* ══════════════════════════════════════════
+   CARDS DE EVENTOS (Contexto) — sin emojis
+   ══════════════════════════════════════════ */
+.event-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.18);
+  border-left: 3px solid #f59e0b;
+  border-radius: 8px;
+  padding: 14px;
+  margin-bottom: 8px;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.event-card:hover {
+  box-shadow: 0 0 20px rgba(245,158,11,0.12);
+  border-color: rgba(245,158,11,0.4);
+}
+.event-icon {
+  width: 42px; height: 42px;
+  background: rgba(245,158,11,0.1);
+  border: 1px solid rgba(245,158,11,0.3);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  padding: 10px;
+}
+.event-icon svg { display: block; }
+.event-title { font-size: 12px; font-weight: 600; color: #a89472 !important; margin-bottom: 3px; }
+.event-value { font-size: 18px; font-weight: 700; color: #fcd34d !important; margin-bottom: 3px; }
+.event-desc  { font-size: 11px; color: #5c5040 !important; }
+
+/* ══════════════════════════════════════════
+   SELECT / DROPDOWN — Obsidian Gold forzado
+   ══════════════════════════════════════════ */
+
+/* El select en sí */
+select,
+select.form-control,
+.selectize-input,
+.selectize-dropdown,
+.selectize-control .selectize-input {
+  background-color: #1a1714 !important;
+  background: #1a1714 !important;
+  color: #f0ebe0 !important;
+  border: 1px solid rgba(245,158,11,0.35) !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+}
+
+/* Ítem activo / seleccionado dentro del input */
+.selectize-input.focus,
+.selectize-input.dropdown-active {
+  border-color: #f59e0b !important;
+  border-bottom-color: transparent !important;
+  border-radius: 6px 6px 0 0 !important;
+  box-shadow: none !important;
+}
+.selectize-input > .item {
+  color: #fcd34d !important;
+  background: transparent !important;
+}
+.selectize-input input {
+  color: #f0ebe0 !important;
+  background: transparent !important;
+}
+.selectize-input::after {
+  border-top-color: #a89472 !important;
+}
+
+/* Menú desplegable — borde dorado, siempre visible */
+.selectize-dropdown {
+  background: #1a1714 !important;
+  border: 1.5px solid #f59e0b !important;
+  border-radius: 0 0 8px 8px !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.8), 0 0 0 1px rgba(245,158,11,0.3) !important;
+  z-index: 9999 !important;
+}
+.selectize-dropdown-content {
+  background: #1a1714 !important;
+  border-radius: 0 0 7px 7px !important;
+}
+
+/* Opciones */
+.selectize-dropdown .option,
+.selectize-dropdown-content .option {
+  color: #a89472 !important;
+  background: #1a1714 !important;
+  padding: 7px 12px !important;
+  font-size: 12.5px !important;
+  transition: background 0.15s, color 0.15s;
+}
+.selectize-dropdown .option:hover,
+.selectize-dropdown-content .option:hover {
+  background: rgba(245,158,11,0.1) !important;
+  color: #fcd34d !important;
+}
+.selectize-dropdown .option.selected,
+.selectize-dropdown .option.active,
+.selectize-dropdown-content .option.selected,
+.selectize-dropdown-content .option.active {
+  background: rgba(245,158,11,0.15) !important;
+  color: #fcd34d !important;
+}
+/* La opción seleccionada con fondo azul Bootstrap — pisarlo */
+.selectize-dropdown .option.selected.active {
+  background: rgba(245,158,11,0.2) !important;
+  color: #fcd34d !important;
+}
+
+/* select nativo (fallback) */
+select option {
+  background: #1a1714 !important;
+  color: #f0ebe0 !important;
+}
+select option:checked,
+select option:hover {
+  background: rgba(245,158,11,0.2) !important;
+  color: #fcd34d !important;
+}
+
+/* checkboxes y radios */
+.radio input[type="radio"],
+.checkbox input[type="checkbox"] {
+  accent-color: #f59e0b !important;
+}
+
+/* ══════════════════════════════════════════
+   Z-INDEX — dropdown sobre plotly
+   ══════════════════════════════════════════ */
+.selectize-dropdown {
+  z-index: 9999 !important;
+}
+
+
